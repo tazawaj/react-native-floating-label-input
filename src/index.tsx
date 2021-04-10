@@ -656,28 +656,10 @@ const FloatingLabelInput: React.ForwardRefRenderFunction<InputRef, Props> = (
   return (
     <TouchableWithoutFeedback onPress={setFocus} onLayout={onLayout}>
       <View style={{ flexDirection: 'row' }}>
-        {staticLabel && (
-          <AnimatedText
-            onPress={setFocus}
-            style={[
-              style,
-              {
-                left: labelStyles?.left
-                  ? labelStyles?.left
-                  : customLabelStyles.leftFocused
-                  ? customLabelStyles.leftFocused
-                  : 20,
-                top: -(style?.fontSize ? style?.fontSize : 10) / 2,
-              },
-            ]}
-          >
-            {label}
-          </AnimatedText>
-        )}
         <View style={containerStyles}>
           {leftComponent && leftComponent}
           <View style={{ flex: 1, flexDirection: 'row' }}>
-            {!staticLabel && (
+
               <AnimatedText
                 onPress={setFocus}
                 style={[
@@ -694,7 +676,6 @@ const FloatingLabelInput: React.ForwardRefRenderFunction<InputRef, Props> = (
               >
                 {label}
               </AnimatedText>
-            )}
             <TextInput
               value={value}
               onSubmitEditing={onSubmitEditing}
